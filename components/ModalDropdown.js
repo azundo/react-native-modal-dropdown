@@ -136,7 +136,7 @@ export default class ModalDropdown extends Component {
 
   select(idx) {
     var value = this.props.defaultValue.toString();
-    if (idx == null || this.props.options == null || idx >= this.props.options.value.length) {
+    if (idx == null || this.props.options == null || idx >= this.props.options[idx].value.length) {
       idx = this.props.defaultIndex;
     }
 
@@ -278,7 +278,7 @@ export default class ModalDropdown extends Component {
     let ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-    return ds.cloneWithRows(this.props.options.value);
+    return ds.cloneWithRows(this.props.options);
   }
 
   _renderRow(rowData, sectionID, rowID, highlightRow) {
